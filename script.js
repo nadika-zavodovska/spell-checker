@@ -30,10 +30,16 @@ function checkSpelling(){
         if(word.match(/^[A-Z]/)) {           
             return;
         } 
-        if(word.includes("-")){            
+        if(word.includes("-")) {            
             const wordPartsArray = word.split("-");            
             if (wordPartsArray.some(wordPart => !words.includes(wordPart) && !userDictionary.has(wordPart))) {
                 userMisspelledWords.add(word);
+                
+            }
+        } else {
+            const wordWithoutSymbols = removeSymbolsFromWord(word);           
+            if(!words.includes(wordWithoutSymbols) && !userDictionary.has(wordWithoutSymbols)) {
+                userMisspelledWords.add(wordWithoutSymbols);               
             }
         }
     });
