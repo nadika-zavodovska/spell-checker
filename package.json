@@ -1,0 +1,29 @@
+{
+  "name": "spell-checker",
+  "version": "1.0.0",
+  "description": "When writing text, it is helpful to have a tool to check that you are spelling correctly. Most computers even have it built in to the operating system.",
+  "main": "script.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nadika-zavodovska/spell-checker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nadika-zavodovska/spell-checker/issues"
+  },
+  "homepage": "https://github.com/nadika-zavodovska/spell-checker#readme",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.26.3",
+    "@babel/preset-env": "^7.26.9",
+    "@jest/globals": "^29.7.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+}
