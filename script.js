@@ -14,6 +14,9 @@ let userDictionary = new Set();
 checkBtn.addEventListener("click", checkSpelling);
 
 function checkSpelling(){
+    // Remove details about previous text
+    checkResultBlock.innerHTML = "";
+
     // Get value (string) from the input and remove spaces before and after the text
     const userText = userTextInput.value.trim();
     // If after remove spaces userText is empty, alert and function exits
