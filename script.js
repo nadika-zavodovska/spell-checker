@@ -38,5 +38,8 @@ function checkSpelling(){
         }
     });
 
+}
 
+function removeSymbolsFromWord(word){
+    return word.replace(/^[.,?!":;]+|[.,?!":;]+$/g, "").toLowerCase();
 }
