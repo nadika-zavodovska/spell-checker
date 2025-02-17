@@ -45,7 +45,7 @@ function checkSpelling(){
                 userMisspelledWords.add(wordWithoutSymbols);               
             }
         }
-    });
+    });    
 
 }
 
@@ -56,4 +56,26 @@ function removeSymbolsFromWord(word){
 function addToUserDictionary(word){
     userDictionary.add(removeSymbolsFromWord(word));
     checkSpelling();
+}
+
+function displayCheckResultBlock(words) {    
+    const misspelledWordsMessage = document.createElement("h2");
+    misspelledWordsMessage.innerText = "Misspelled words:";
+    checkResultBlock.appendChild(misspelledWordsMessage);
+    
+
+    words.forEach(word => {
+        const addMisspelledWordBlock = document.createElement("div");
+        checkResultBlock.appendChild(addMisspelledWordBlock);
+
+        const misspelledWordEl = document.createElement("span");
+        misspelledWordEl.innerText = word;
+        misspelledWordEl.classList.add("misspelled-word");
+        addMisspelledWordBlock.appendChild(misspelledWordEl);
+
+        const addBtn = document.createElement("button");
+        addBtn.innerText = `Add word`;
+        addBtn.addEventListener("click", () => addToUserDictionary(word));
+        addMisspelledWordBlock.appendChild(addBtn);
+    })
 }
