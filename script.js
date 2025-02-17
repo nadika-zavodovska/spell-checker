@@ -45,8 +45,10 @@ function checkSpelling(){
                 userMisspelledWords.add(wordWithoutSymbols);               
             }
         }
-    });    
-
+    });  
+    if (userMisspelledWords.size > 0) {
+        displayCheckResultBlock([...userMisspelledWords]);
+    }
 }
 
 function removeSymbolsFromWord(word){
