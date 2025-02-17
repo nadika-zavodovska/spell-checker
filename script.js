@@ -3,7 +3,6 @@ import words from "./words.json" with { type: "json" };
 // User dictionary, which store words added by user without duplicates
 let userDictionary = new Set();
 
-
     const userTextInput = document.getElementById("userText"); 
     const checkBtn = document.getElementById("checkBtn"); 
     const mainBlock = document.getElementById("main-block");
@@ -13,12 +12,31 @@ let userDictionary = new Set();
     mainBlock.appendChild(checkResultBlock);
 
 checkBtn.addEventListener("click", checkSpelling);
+
 function checkSpelling(){
-    // Get value from the input and remove spaces before and after the text
+    // Get value (string) from the input and remove spaces before and after the text
     const userText = userTextInput.value.trim();
-    // If after remove spaces userText is empty, function exits
+    // If after remove spaces userText is empty, alert and function exits
     if(!userText) {
-        return;
-    }
-    console.log(userText);
+        alert("You didn't type any text. Please, type your text.");
+        return;        
+    }    
+    
+    // Convert userText string to array. Split by spaces.
+    const userWordsArray = userText.split(/\s+/);
+    let userMisspelledWords = new Set();    
+
+    userWordsArray.forEach((word) => {
+        if(word.match(/^[A-Z]/)) {           
+            return;
+        } 
+        if(word.includes("-")){            
+            const wordPartsArray = word.split("-");            
+            if (wordPartsArray.some(wordPart => !words.includes(wordPart) && !userDictionary.has(wordPart))) {
+                userMisspelledWords.add(word);
+            }
+        }
+    });
+
+
 }
