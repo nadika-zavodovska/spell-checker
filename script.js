@@ -53,7 +53,7 @@ function checkSpelling() {
 }
 
 export function removeSymbolsFromWord(word) {
-    return word.replace(/^[.,?!":;]+|[.,?!":;]+$/g, "").toLowerCase();
+    return word.replace(/^[.,?!'":;]+|[.,?!":;]+$/g, "").toLowerCase();
 }
 
 function addToUserDictionary(word) {
