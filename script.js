@@ -14,6 +14,9 @@ let userDictionary = new Set();
 checkBtn.addEventListener("click", checkSpelling);
 
 function checkSpelling(){
+    // Remove details about previous text
+    checkResultBlock.innerHTML = "";
+
     // Get value (string) from the input and remove spaces before and after the text
     const userText = userTextInput.value.trim();
     // If after remove spaces userText is empty, alert and function exits
@@ -30,16 +33,49 @@ function checkSpelling(){
         if(word.match(/^[A-Z]/)) {           
             return;
         } 
-        if(word.includes("-")){            
+        if(word.includes("-")) {            
             const wordPartsArray = word.split("-");            
             if (wordPartsArray.some(wordPart => !words.includes(wordPart) && !userDictionary.has(wordPart))) {
                 userMisspelledWords.add(word);
+                
+            }
+        } else {
+            const wordWithoutSymbols = removeSymbolsFromWord(word);           
+            if(!words.includes(wordWithoutSymbols) && !userDictionary.has(wordWithoutSymbols)) {
+                userMisspelledWords.add(wordWithoutSymbols);               
             }
         }
-    });
+    });    
 
 }
 
 function removeSymbolsFromWord(word){
     return word.replace(/^[.,?!":;]+|[.,?!":;]+$/g, "").toLowerCase();
+}
+
+function addToUserDictionary(word){
+    userDictionary.add(removeSymbolsFromWord(word));
+    checkSpelling();
+}
+
+function displayCheckResultBlock(words) {    
+    const misspelledWordsMessage = document.createElement("h2");
+    misspelledWordsMessage.innerText = "Misspelled words:";
+    checkResultBlock.appendChild(misspelledWordsMessage);
+    
+
+    words.forEach(word => {
+        const addMisspelledWordBlock = document.createElement("div");
+        checkResultBlock.appendChild(addMisspelledWordBlock);
+
+        const misspelledWordEl = document.createElement("span");
+        misspelledWordEl.innerText = word;
+        misspelledWordEl.classList.add("misspelled-word");
+        addMisspelledWordBlock.appendChild(misspelledWordEl);
+
+        const addBtn = document.createElement("button");
+        addBtn.innerText = `Add word`;
+        addBtn.addEventListener("click", () => addToUserDictionary(word));
+        addMisspelledWordBlock.appendChild(addBtn);
+    })
 }
