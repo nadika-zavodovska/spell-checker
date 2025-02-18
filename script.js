@@ -82,6 +82,7 @@ function displayCheckResultBlock(words) {
 
         const addBtn = document.createElement("button");
         addBtn.innerText = `Add word`;
+        addBtn.classList.add("add-btn");
         addBtn.addEventListener("click", () => addToUserDictionary(word));
         addMisspelledWordBlock.appendChild(addBtn);
     });
