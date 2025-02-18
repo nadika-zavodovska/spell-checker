@@ -66,9 +66,14 @@ export function addToUserDictionary(word) {
 
 function displayCheckResultBlock(words) {
     const misspelledWordsMessage = document.createElement("h2");
-    misspelledWordsMessage.innerText = "Misspelled words:";
+    misspelledWordsMessage.innerText = "Misspelled words found:";
     misspelledWordsMessage.classList.add("misspelled-message-title");
     checkResultBlock.appendChild(misspelledWordsMessage);
+
+    const misspelledWordsDescription = document.createElement("div");
+    misspelledWordsDescription.classList.add("misspelled-block-description");
+    misspelledWordsDescription.innerHTML = "If you think these words are correct, you can add them to your personal dictionary."
+    checkResultBlock.appendChild(misspelledWordsDescription);
 
     words.forEach(word => {
         const addMisspelledWordBlock = document.createElement("div");
