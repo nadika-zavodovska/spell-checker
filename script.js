@@ -6,6 +6,7 @@ export let userDictionary = new Set();
 let checkResultBlock = document.createElement("div");
 checkResultBlock.id = "check-result-block";
 let userTextInput;
+let userMisspelledWords;
 
 window.onload = function () {
     userTextInput = document.getElementById("userText");
@@ -31,7 +32,7 @@ function checkSpelling() {
 
     // Convert userText string to array. Split by spaces.
     const userWordsArray = userText.split(/\s+/);
-    let userMisspelledWords = new Set();
+    userMisspelledWords = new Set();
 
     userWordsArray.forEach((word) => {
         if (word.match(/^[A-Z]/)) {
@@ -65,15 +66,29 @@ export function addToUserDictionary(word) {
 }
 
 function displayCheckResultBlock(words) {
-    const misspelledWordsMessage = document.createElement("h2");
-    misspelledWordsMessage.innerText = "Misspelled words found:";
-    misspelledWordsMessage.classList.add("misspelled-message-title");
-    checkResultBlock.appendChild(misspelledWordsMessage);
+    if (userMisspelledWords.size === 1) {
+        const misspelledWordsMessage = document.createElement("h2");
+        misspelledWordsMessage.innerText = "Misspelled word found:";
+        misspelledWordsMessage.classList.add("misspelled-message-title");
+        checkResultBlock.appendChild(misspelledWordsMessage);
 
-    const misspelledWordsDescription = document.createElement("div");
-    misspelledWordsDescription.classList.add("misspelled-block-description");
-    misspelledWordsDescription.innerHTML = "If you think these words are correct, you can add them to your personal dictionary."
-    checkResultBlock.appendChild(misspelledWordsDescription);
+        const misspelledWordsDescription = document.createElement("div");
+        misspelledWordsDescription.classList.add("misspelled-block-description");
+        misspelledWordsDescription.innerHTML = "If you think this word are correct, you can add them to your personal dictionary."
+        checkResultBlock.appendChild(misspelledWordsDescription);
+    } else {
+        const misspelledWordsMessage = document.createElement("h2");
+        misspelledWordsMessage.innerText = "Misspelled words found:";
+        misspelledWordsMessage.classList.add("misspelled-message-title");
+        checkResultBlock.appendChild(misspelledWordsMessage);
+
+        const misspelledWordsDescription = document.createElement("div");
+        misspelledWordsDescription.classList.add("misspelled-block-description");
+        misspelledWordsDescription.innerHTML = "If you think these words are correct, you can add them to your personal dictionary."
+        checkResultBlock.appendChild(misspelledWordsDescription);
+    }
+
+
 
     words.forEach(word => {
         const addMisspelledWordBlock = document.createElement("div");
