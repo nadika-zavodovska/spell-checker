@@ -1,18 +1,21 @@
 import words from "./words.json" with { type: "json" };
 
 // User dictionary, which store words added by user without duplicates
-let userDictionary = new Set();
+export let userDictionary = new Set();
+
+let checkResultBlock = document.createElement("div");
+checkResultBlock.id = "check-result-block";
+let userTextInput;
+
 window.onload = function () {
-    const userTextInput = document.getElementById("userText");
+    userTextInput = document.getElementById("userText");
     const checkBtn = document.getElementById("checkBtn");
     const mainBlock = document.getElementById("main-block");
 
-    const checkResultBlock = document.createElement("div");
-    checkResultBlock.id = "check-result-block";
     mainBlock.appendChild(checkResultBlock);
 
     checkBtn.addEventListener("click", checkSpelling);
-}
+};
 
 function checkSpelling() {
     // Remove details about previous text
@@ -56,7 +59,7 @@ export function removeSymbolsFromWord(word) {
     return word.replace(/^[.,?!'":;]+|[.,?!":;]+$/g, "").toLowerCase();
 }
 
-function addToUserDictionary(word) {
+export function addToUserDictionary(word) {
     userDictionary.add(removeSymbolsFromWord(word));
     checkSpelling();
 }
