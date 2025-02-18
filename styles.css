@@ -12,6 +12,7 @@ body {
 }
 
 .textInput {
+    margin-top: 20px;
     width: 80%;
     padding: 7px;
     border-radius: 5px;
@@ -64,6 +65,10 @@ body {
 .misspelled-word-btn-block {
     margin-bottom: 7px;
     text-align: left;
+}
+
+.misspelled-block-description{
+    margin-bottom: 20px;
 }
 
 .add-btn {
