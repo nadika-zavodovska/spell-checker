@@ -1,7 +1,32 @@
-.misspelled-message-title{
+body {
+    font-size: 16px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.header-container,
+.main-container,
+.footer-container {
+    text-align: center;
+}
+
+.textInput {
+    width: 80%;
+}
+
+.spellCheckBtn {
+    width: 20%;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.misspelled-message-title {
     color: rgb(226, 5, 5);
 }
 
-.misspelled-word{
+.misspelled-word {
     color: rgb(226, 5, 5);
 }
