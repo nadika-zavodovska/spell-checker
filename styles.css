@@ -53,10 +53,17 @@ body {
 
 .misspelled-message-title {
     color: rgb(226, 5, 5);
+    
 }
 
 .misspelled-word {
     color: rgb(226, 5, 5);
+    margin-right: 5px;
+}
+
+.misspelled-word-btn-block{
+    margin-bottom: 7px;
+    text-align: left;
 }
 
 @media (max-width: 768px){

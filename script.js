@@ -72,6 +72,7 @@ function displayCheckResultBlock(words) {
 
     words.forEach(word => {
         const addMisspelledWordBlock = document.createElement("div");
+        addMisspelledWordBlock.classList.add("misspelled-word-btn-block");
         checkResultBlock.appendChild(addMisspelledWordBlock);
 
         const misspelledWordEl = document.createElement("span");
