@@ -1,6 +1,7 @@
 body {
     font-size: 16px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: #dcffdc;
 }
 
 .header-container,
@@ -11,6 +12,14 @@ body {
 
 .textInput {
     width: 80%;
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid rgb(0, 136, 0);
+    resize: both;
+    min-width: 20vw;
+    max-width: 90vw;
+    min-height: 30vh;
+    max-height: 80vh;
 }
 
 .spellCheckBtn {
