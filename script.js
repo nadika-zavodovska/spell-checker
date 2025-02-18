@@ -40,10 +40,16 @@ function checkSpelling() {
         }
         if (word.includes("-")) {
             const wordPartsArray = word.split("-");
-            if (wordPartsArray.some(wordPart => !words.includes(wordPart) && !userDictionary.has(wordPart))) {
-                userMisspelledWords.add(word);
-
-            }
+            console.log(wordPartsArray);
+            // if (wordPartsArray.some(wordPart => !words.includes(wordPart) && !userDictionary.has(wordPart))) {
+            //     userMisspelledWords.add(word);
+            // }
+            wordPartsArray.forEach(oneWord => {
+                if (!words.includes(oneWord) && !userDictionary.has(oneWord)){
+                    userMisspelledWords.add(oneWord);
+                   console.log(userMisspelledWords);
+                }
+            })
         } else {
             const wordWithoutSymbols = removeSymbolsFromWord(word);
             if (!words.includes(wordWithoutSymbols) && !userDictionary.has(wordWithoutSymbols)) {
@@ -87,8 +93,6 @@ function displayCheckResultBlock(words) {
         misspelledWordsDescription.innerHTML = "If you think these words are correct, you can add them to your personal dictionary."
         checkResultBlock.appendChild(misspelledWordsDescription);
     }
-
-
 
     words.forEach(word => {
         const addMisspelledWordBlock = document.createElement("div");
