@@ -67,10 +67,12 @@ export function addToUserDictionary(word) {
 function displayCheckResultBlock(words) {
     const misspelledWordsMessage = document.createElement("h2");
     misspelledWordsMessage.innerText = "Misspelled words:";
+    misspelledWordsMessage.classList.add("misspelled-message-title");
     checkResultBlock.appendChild(misspelledWordsMessage);
 
     words.forEach(word => {
         const addMisspelledWordBlock = document.createElement("div");
+        addMisspelledWordBlock.classList.add("misspelled-word-btn-block");
         checkResultBlock.appendChild(addMisspelledWordBlock);
 
         const misspelledWordEl = document.createElement("span");
@@ -80,6 +82,7 @@ function displayCheckResultBlock(words) {
 
         const addBtn = document.createElement("button");
         addBtn.innerText = `Add word`;
+        addBtn.classList.add("add-btn");
         addBtn.addEventListener("click", () => addToUserDictionary(word));
         addMisspelledWordBlock.appendChild(addBtn);
     });
