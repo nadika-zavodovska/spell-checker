@@ -45,7 +45,8 @@ function checkSpelling() {
             //     userMisspelledWords.add(word);
             // }
             wordPartsArray.forEach(oneWord => {
-                if (!words.includes(oneWord) && !userDictionary.has(oneWord)){
+                console.log(wordPartsArray);
+                if (!words.includes(oneWord) && !userDictionary.has(oneWord) && oneWord !== ""){
                     userMisspelledWords.add(oneWord);
                    console.log(userMisspelledWords);
                 }
@@ -63,7 +64,7 @@ function checkSpelling() {
 }
 
 export function removeSymbolsFromWord(word) {
-    return word.replace(/^[.,?!'":;]+|[.,?!":;]+$/g, "").toLowerCase();
+    return word.replace(/^[,.?!":;]+|[,.?!":;]+$/g, "").toLowerCase();
 }
 
 export function addToUserDictionary(word) {
