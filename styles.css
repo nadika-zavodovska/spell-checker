@@ -1,8 +1,13 @@
 body {
     font-size: 16px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-color: #dcffdc;
+    background-color: #09212f;
     height: 100%;
+    color: #fff;
+}
+
+a {
+    color: #fff;
 }
 
 .header-container,
@@ -11,12 +16,16 @@ body {
     text-align: center;
 }
 
+.footer-container {
+    margin-top: 30px;
+}
+
 .textInput {
     margin-top: 20px;
     width: 80%;
     padding: 7px;
     border-radius: 5px;
-    border: 1px solid rgb(0, 136, 0);
+    background-color: #f5eddb;
     resize: both;
     min-width: 20vw;
     max-width: 90vw;
@@ -25,23 +34,23 @@ body {
 }
 
 .spellCheckBtn {
-    width: 20vw;
+    width: 35vw;
     cursor: pointer;
-    padding: 7px 20px;
+    padding: 12px 15px;
     text-transform: uppercase;
-    font-size: 1rem;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 40px;
     border-radius: 5px;
-    background-color: #0c720c;
+    background-color: #8ad959;
     border: none;
-    color: #fff;
-    transform: translateY(1px);
+    color: #000;
     transition: transform ease-in 0.5s;
 }
 
 .spellCheckBtn:hover {
-    background-color: #085208;
+    background-color: #76c148;
     transform: translateY(-2px);
 }
 
@@ -53,42 +62,64 @@ body {
 }
 
 .misspelled-message-title {
-    color: rgb(226, 5, 5);
+    color: #ffb5a4;
 
 }
 
 .misspelled-word {
-    color: rgb(226, 5, 5);
+    color: #ffb5a4;
+    padding: 8px 20px;
     margin-right: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid #ffb5a4;
+}
+
+.misspelled-word:hover {
+    background-color: #040e14;
 }
 
 .misspelled-word-btn-block {
-    margin-bottom: 7px;
     text-align: left;
+    padding: 10px 0px;
 }
 
-.misspelled-block-description{
+.misspelled-block-description {
     margin-bottom: 20px;
+}
+
+#check-result-container {
+    width: 80%;
+}
+
+#check-result-block {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ffb5a4;
+    border-radius: 5px;
 }
 
 .add-btn {
     width: 20vw;
     cursor: pointer;
-    padding: 7px 20px;
+    padding: 8px 20px;
     text-transform: uppercase;
-    font-size: 1rem;    
-    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: bold;
     border-radius: 5px;
-    background-color: #175104;
-    border: none;
-    color: #fff;
-    transform: translateY(1px);
+    background-color: #b8ff8c;
+    color: #000;
     transition: transform ease-in 0.5s;
+    border: none;
 }
 
 .add-btn:hover {
-    background-color: #027902;
+    background-color: #90d366;
     transform: translateY(-2px);
+}
+
+.main-title {
+    color: #fff;
 }
 
 @media (max-width: 768px) {
