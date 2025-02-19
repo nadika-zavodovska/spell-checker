@@ -59,7 +59,7 @@ function checkSpelling() {
     });
     if (userMisspelledWords.size > 0) {
         displayCheckResultBlock([...userMisspelledWords]);
-    } else{
+    } else {
         checkResultBlock.classList.remove("misspelled-block-add-border");
     }
 }
@@ -76,27 +76,16 @@ export function addToUserDictionary(word) {
 
 function displayCheckResultBlock(words) {
     checkResultBlock.classList.add("misspelled-block-add-border");
-    if (userMisspelledWords.size === 1) {
-        const misspelledWordsMessage = document.createElement("h2");
-        misspelledWordsMessage.innerText = "Misspelled word found:";
-        misspelledWordsMessage.classList.add("misspelled-message-title");
-        checkResultBlock.appendChild(misspelledWordsMessage);
+    const misspelledWordsMessage = document.createElement("h2");
+    misspelledWordsMessage.innerText = words.length === 1 ? "Misspelled word found:" : "Misspelled words found:";
+    checkResultBlock.appendChild(misspelledWordsMessage);
 
-        const misspelledWordsDescription = document.createElement("div");
-        misspelledWordsDescription.classList.add("misspelled-block-description");
-        misspelledWordsDescription.innerHTML = "If you think this word are correct, you can add them to your personal dictionary."
-        checkResultBlock.appendChild(misspelledWordsDescription);
-    } else {
-        const misspelledWordsMessage = document.createElement("h2");
-        misspelledWordsMessage.innerText = "Misspelled words found:";
-        misspelledWordsMessage.classList.add("misspelled-message-title");
-        checkResultBlock.appendChild(misspelledWordsMessage);
-
-        const misspelledWordsDescription = document.createElement("div");
-        misspelledWordsDescription.classList.add("misspelled-block-description");
-        misspelledWordsDescription.innerHTML = "If you think these words are correct, you can add them to your personal dictionary."
-        checkResultBlock.appendChild(misspelledWordsDescription);
-    }
+    const misspelledWordsDescription = document.createElement("div");
+    misspelledWordsDescription.classList.add("misspelled-block-description");
+    misspelledWordsDescription.innerHTML = words.length === 1
+        ? "If you think this word is correct, you can add it to your personal dictionary."
+        : "If you think these words are correct, you can add them to your personal dictionary.";
+    checkResultBlock.appendChild(misspelledWordsDescription);
 
     words.forEach(word => {
         const addMisspelledWordBlock = document.createElement("div");
