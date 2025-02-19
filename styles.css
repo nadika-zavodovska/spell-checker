@@ -6,8 +6,13 @@ body {
     color: #fff;
 }
 
-a {
-    color: #fff;
+.linkGithub {
+    color: #8ad959;
+    transition: color ease-in 0.5s;
+}
+
+.linkGithub:hover {
+    color: #54a820;
 }
 
 .header-container,

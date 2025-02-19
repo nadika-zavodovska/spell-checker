@@ -35,20 +35,19 @@ function checkSpelling() {
     userMisspelledWords = new Set();
 
     userWordsArray.forEach((word) => {
-        if (word.match(/^[A-Z]/)) {
+
+        if (word.match(/^[A-Z][a-z]*$/)) {
             return;
         }
+
         if (word.includes("-")) {
+
             const wordPartsArray = word.split("-");
-            console.log(wordPartsArray);
-            // if (wordPartsArray.some(wordPart => !words.includes(wordPart) && !userDictionary.has(wordPart))) {
-            //     userMisspelledWords.add(word);
-            // }
+
             wordPartsArray.forEach(oneWord => {
-                console.log(wordPartsArray);
-                if (!words.includes(oneWord) && !userDictionary.has(oneWord) && oneWord !== "") {
-                    userMisspelledWords.add(oneWord);
-                    console.log(userMisspelledWords);
+                const oneWordWithoutSymbols = removeSymbolsFromWord(oneWord);
+                if (!words.includes(oneWordWithoutSymbols) && !userDictionary.has(oneWordWithoutSymbols) && oneWord !== "") {
+                    userMisspelledWords.add(oneWordWithoutSymbols);
                 }
             })
         } else {
@@ -60,8 +59,9 @@ function checkSpelling() {
     });
     if (userMisspelledWords.size > 0) {
         displayCheckResultBlock([...userMisspelledWords]);
+    } else{
+        checkResultBlock.classList.remove("misspelled-block-add-border");
     }
-
 }
 
 export function removeSymbolsFromWord(word) {
