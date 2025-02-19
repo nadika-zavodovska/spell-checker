@@ -6,7 +6,7 @@ This project implements a text checker that identifies spelling mistakes based o
 - **Text Input:** Users can enter text to check for spelling errors.
 - **Spell Checking:** The web application scans each word against the Basic English dictionary. Words not found in the dictionary are flagged as mistakes.
 - **Dictionary Addition:** Users can add misspelled words to their personal dictionary. After adding, those words won’t be flagged as errors.
-- **Punctuation Handling:** The website properly handles punctuation marks (like commas and periods), ensuring that correct words adjacent to punctuation aren’t flagged as mistakes.
+- **Punctuation Handling:** The web application properly handles punctuation marks (like commas and periods), ensuring that correct words adjacent to punctuation aren’t flagged as mistakes.
 
 ## Technologies
 - **HTML:** Used for the structure of the project.
