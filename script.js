@@ -6,6 +6,7 @@ export let userDictionary = new Set();
 let checkResultBlock = document.createElement("div");
 checkResultBlock.id = "check-result-block";
 let userTextInput;
+let userMisspelledWords;
 
 window.onload = function () {
     userTextInput = document.getElementById("userText");
@@ -31,7 +32,7 @@ function checkSpelling() {
 
     // Convert userText string to array. Split by spaces.
     const userWordsArray = userText.split(/\s+/);
-    let userMisspelledWords = new Set();
+    userMisspelledWords = new Set();
 
     userWordsArray.forEach((word) => {
         if (word.match(/^[A-Z]/)) {
@@ -39,10 +40,17 @@ function checkSpelling() {
         }
         if (word.includes("-")) {
             const wordPartsArray = word.split("-");
-            if (wordPartsArray.some(wordPart => !words.includes(wordPart) && !userDictionary.has(wordPart))) {
-                userMisspelledWords.add(word);
-
-            }
+            console.log(wordPartsArray);
+            // if (wordPartsArray.some(wordPart => !words.includes(wordPart) && !userDictionary.has(wordPart))) {
+            //     userMisspelledWords.add(word);
+            // }
+            wordPartsArray.forEach(oneWord => {
+                console.log(wordPartsArray);
+                if (!words.includes(oneWord) && !userDictionary.has(oneWord) && oneWord !== "") {
+                    userMisspelledWords.add(oneWord);
+                    console.log(userMisspelledWords);
+                }
+            })
         } else {
             const wordWithoutSymbols = removeSymbolsFromWord(word);
             if (!words.includes(wordWithoutSymbols) && !userDictionary.has(wordWithoutSymbols)) {
@@ -53,27 +61,42 @@ function checkSpelling() {
     if (userMisspelledWords.size > 0) {
         displayCheckResultBlock([...userMisspelledWords]);
     }
+
 }
 
 export function removeSymbolsFromWord(word) {
-    return word.replace(/^[.,?!'":;]+|[.,?!":;]+$/g, "").toLowerCase();
+    return word.replace(/^[,.?!":;]+|[,.?!":;]+$/g, "").toLowerCase();
 }
 
 export function addToUserDictionary(word) {
     userDictionary.add(removeSymbolsFromWord(word));
+    checkResultBlock.classList.remove("misspelled-block-add-border");
     checkSpelling();
 }
 
 function displayCheckResultBlock(words) {
-    const misspelledWordsMessage = document.createElement("h2");
-    misspelledWordsMessage.innerText = "Misspelled words found:";
-    misspelledWordsMessage.classList.add("misspelled-message-title");
-    checkResultBlock.appendChild(misspelledWordsMessage);
+    checkResultBlock.classList.add("misspelled-block-add-border");
+    if (userMisspelledWords.size === 1) {
+        const misspelledWordsMessage = document.createElement("h2");
+        misspelledWordsMessage.innerText = "Misspelled word found:";
+        misspelledWordsMessage.classList.add("misspelled-message-title");
+        checkResultBlock.appendChild(misspelledWordsMessage);
 
-    const misspelledWordsDescription = document.createElement("div");
-    misspelledWordsDescription.classList.add("misspelled-block-description");
-    misspelledWordsDescription.innerHTML = "If you think these words are correct, you can add them to your personal dictionary."
-    checkResultBlock.appendChild(misspelledWordsDescription);
+        const misspelledWordsDescription = document.createElement("div");
+        misspelledWordsDescription.classList.add("misspelled-block-description");
+        misspelledWordsDescription.innerHTML = "If you think this word are correct, you can add them to your personal dictionary."
+        checkResultBlock.appendChild(misspelledWordsDescription);
+    } else {
+        const misspelledWordsMessage = document.createElement("h2");
+        misspelledWordsMessage.innerText = "Misspelled words found:";
+        misspelledWordsMessage.classList.add("misspelled-message-title");
+        checkResultBlock.appendChild(misspelledWordsMessage);
+
+        const misspelledWordsDescription = document.createElement("div");
+        misspelledWordsDescription.classList.add("misspelled-block-description");
+        misspelledWordsDescription.innerHTML = "If you think these words are correct, you can add them to your personal dictionary."
+        checkResultBlock.appendChild(misspelledWordsDescription);
+    }
 
     words.forEach(word => {
         const addMisspelledWordBlock = document.createElement("div");
