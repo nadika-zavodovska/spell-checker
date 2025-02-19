@@ -81,4 +81,12 @@ describe("addToUserDictionary function", () => {
         expect(userDictionary.has("hello")).toBe(true);
         expect(userDictionary.has("fine")).toBe(true);
     });
+
+    test("should check for misspelling words with capital first letter and symbol at the end before adding", () => {
+        const wordWithCapitalFirstLetterSymbol = "Hello!";        
+
+        addToUserDictionary(wordWithCapitalFirstLetterSymbol);       
+
+        expect(userDictionary.has("hello")).toBe(true);        
+    });
 });

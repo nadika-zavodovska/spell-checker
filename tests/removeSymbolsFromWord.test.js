@@ -15,5 +15,5 @@ describe("removeSymbolsFromWord function", () => {
 
     test("should remove '?' after the word", () => {
         expect(removeSymbolsFromWord("fine?")).toBe("fine");
-    });
+    });   
 });
