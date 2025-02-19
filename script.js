@@ -42,11 +42,9 @@ function checkSpelling() {
     userWordsArray.forEach((word) => {
 
         // Check if the first letter is capitalised
-        if (word.match(/^[A-Z][a-z]*$/)) {
+        if (word.match(/^[A-Z]/)) {
             return;
-        }
-
-        if (word.includes("-")) {
+        } else if (word.includes("-")) {
 
             const wordPartsArray = word.split("-");
 
