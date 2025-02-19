@@ -3,7 +3,7 @@ import words from "./words.json" with { type: "json" };
 // User dictionary, which store words added by user without duplicates
 export let userDictionary = new Set();
 
-let checkResultBlock = document.createElement("div");
+const checkResultBlock = document.createElement("div");
 checkResultBlock.id = "check-result-block";
 let userTextInput;
 let userMisspelledWords;
@@ -20,7 +20,7 @@ window.onload = function () {
 
 function checkSpelling() {
     // Remove details about previous text
-    checkResultBlock.innerHTML = "";
+    checkResultBlock.textContent = "";
 
     // Get value (string) from the input and remove spaces before and after the text
     const userText = userTextInput.value.trim();
