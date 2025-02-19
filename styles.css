@@ -1,6 +1,6 @@
 body {
     font-size: 16px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: #09212f;
     height: 100%;
     color: #fff;
@@ -16,6 +16,10 @@ a {
     text-align: center;
 }
 
+.header-container {
+    padding: 0 25px;
+}
+
 .footer-container {
     margin-top: 30px;
 }
@@ -23,20 +27,22 @@ a {
 .textInput {
     margin-top: 20px;
     width: 80%;
-    padding: 7px;
+    padding: 13px;
     border-radius: 5px;
+    font-size: 1rem;
     background-color: #f5eddb;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     resize: both;
-    min-width: 20vw;
+    min-width: 25vw;
     max-width: 90vw;
     min-height: 30vh;
     max-height: 70vh;
 }
 
 .spellCheckBtn {
-    width: 35vw;
+    width: 27vw;
     cursor: pointer;
-    padding: 12px 15px;
+    padding: 13px;
     text-transform: uppercase;
     font-size: 1.3rem;
     font-weight: bold;
@@ -80,7 +86,7 @@ a {
 }
 
 .misspelled-word-btn-block {
-    text-align: left;
+    text-align: center;
     padding: 10px 0px;
 }
 
@@ -94,10 +100,11 @@ a {
 
 #check-result-block {
     width: 80%;
-    padding: 10px;
+    padding: 10px 12px 25px;
     border-radius: 5px;
 }
-.misspelled-block-add-border{
+
+.misspelled-block-add-border {
     border: 1px solid rgb(248, 3, 3);
 }
 
@@ -132,5 +139,11 @@ a {
 
     .textInput {
         width: 76vw;
+    }
+
+    .add-btn {
+        width: 45vw;
+        margin-top: 13px;
+        font-size: 0.9rem;
     }
 }

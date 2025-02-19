@@ -75,7 +75,7 @@ export function addToUserDictionary(word) {
 }
 
 function displayCheckResultBlock(words) {
-    checkResultBlock.classList.add("misspelled-block-add-border");    
+    checkResultBlock.classList.add("misspelled-block-add-border");
     if (userMisspelledWords.size === 1) {
         const misspelledWordsMessage = document.createElement("h2");
         misspelledWordsMessage.innerText = "Misspelled word found:";
