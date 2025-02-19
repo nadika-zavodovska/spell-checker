@@ -61,6 +61,7 @@ function checkSpelling() {
     if (userMisspelledWords.size > 0) {
         displayCheckResultBlock([...userMisspelledWords]);
     }
+
 }
 
 export function removeSymbolsFromWord(word) {
@@ -69,10 +70,12 @@ export function removeSymbolsFromWord(word) {
 
 export function addToUserDictionary(word) {
     userDictionary.add(removeSymbolsFromWord(word));
+    checkResultBlock.classList.remove("misspelled-block-add-border");
     checkSpelling();
 }
 
 function displayCheckResultBlock(words) {
+    checkResultBlock.classList.add("misspelled-block-add-border");    
     if (userMisspelledWords.size === 1) {
         const misspelledWordsMessage = document.createElement("h2");
         misspelledWordsMessage.innerText = "Misspelled word found:";
