@@ -26,15 +26,15 @@ describe("addToUserDictionary function", () => {
         testCheckBtn.id = "checkBtn";
         document.body.appendChild(testCheckBtn);
 
-        // Clear the userDictionary
+        // reset the dictionary to an empty state before each test runs
         userDictionary.clear();
 
-        // Set the testInputElement value
+        // simulate user input text, prevent the alert from showing 
         testInputElement.value = "test1 test2 test3";
 
         // Call window.onload manually, simulate the page load event
         window.onload();
-        
+
         testWord1 = "   test1   ";
         testWord2 = "    test2!  ";
         testWord3 = "   .test3    ";
@@ -80,5 +80,13 @@ describe("addToUserDictionary function", () => {
         expect(userDictionary.has("world")).toBe(true);
         expect(userDictionary.has("hello")).toBe(true);
         expect(userDictionary.has("fine")).toBe(true);
+    });
+
+    test("Words that begin with capital letters, should always be treated as 'correct' words", () => {
+        const wordWithCapitalFirstLetterSymbol = "Hello";
+
+        addToUserDictionary(wordWithCapitalFirstLetterSymbol);
+
+        expect(userDictionary.has("hello")).toBe(true);
     });
 });
