@@ -36,9 +36,10 @@ function checkSpelling() {
 
     userWordsArray.forEach((word) => {
 
-        if (word.match(/^[A-Z]/)) {
+        if (word.match(/^[A-Z][a-z]*$/)) {
             return;
         }
+
         if (word.includes("-")) {
 
             const wordPartsArray = word.split("-");
@@ -58,6 +59,8 @@ function checkSpelling() {
     });
     if (userMisspelledWords.size > 0) {
         displayCheckResultBlock([...userMisspelledWords]);
+    } else{
+        checkResultBlock.classList.remove("misspelled-block-add-border");
     }
 }
 
