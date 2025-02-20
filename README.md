@@ -1,6 +1,6 @@
 # Spell-checker
 
-This project implements a text checker that identifies spelling mistakes based on a Basic English dictionary. The tool allows users to input text, and it checks if each word is present in the dictionary. Misspelled words are flagged, and users can add new words to their personal dictionary for future checks.<br>**The goal** is to help users check their text for spelling errors.
+This project implements a text checker that identifies spelling mistakes based on a Basic English dictionary (based on a words.json). The tool allows users to input text, and it checks if each word is present in the dictionary. Misspelled words are flagged, and users can add new words to their personal dictionary for future checks.<br>**The goal** is to help users check their text for spelling errors.
 
 ## Features
 - **Text Input:** Users can enter text to check for spelling errors.
