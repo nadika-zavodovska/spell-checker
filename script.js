@@ -46,7 +46,8 @@ function checkSpelling() {
             return;
         } else if (word.includes("-")) {
 
-            const wordPartsArray = word.split("-");
+            const wordPartsArray = word.split("-"); rdsDescription = document.createElement("div");
+            misspelledWordsDescription.classList.ad
 
             wordPartsArray.forEach(oneWord => {
                 // Remove symbols from each word part, check if it's misspelled
@@ -76,7 +77,7 @@ export function removeSymbolsFromWord(word) {
 }
 
 export function addToUserDictionary(word) {
-    userDictionary.add(removeSymbolsFromWord(word));
+    userDictionary.add(word);
     checkSpelling();
 }
 
