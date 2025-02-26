@@ -22,8 +22,8 @@ window.onload = function () {
 };
 
 function checkSpelling() {
-    // Remove details about previous check
-    checkResultBlock.textContent = "";
+    // Function to remove details about previous check
+    clearPreviousResults();
 
     // Get value (string) from the input and remove spaces before and after the text
     const userText = userTextInput.value.trim();
