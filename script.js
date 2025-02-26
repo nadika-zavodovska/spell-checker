@@ -72,6 +72,10 @@ function checkSpelling() {
     }
 }
 
+function clearPreviousResults() {
+    checkResultBlock.textContent = "";
+}
+
 export function removeSymbolsFromWord(word) {
     return word.replace(/^[,.?!":;]+|[,.?!":;]+$/g, "").toLowerCase();
 }
