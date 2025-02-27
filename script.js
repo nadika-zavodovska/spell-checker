@@ -19,6 +19,7 @@ window.onload = function () {
     mainBlock.appendChild(checkResultBlock);
 
     checkBtn.addEventListener("click", checkSpelling);
+    // userTextInput.addEventListener("change", checkSpelling);
 };
 
 function checkSpelling() {
@@ -42,7 +43,7 @@ function checkSpelling() {
     userWordsArray.forEach((word) => {
 
         // Check if the first letter is capitalised
-        if (word.match(/^[A-Z]/)) {
+        if (/^[A-Z]/.test(word)) {
             return;
         } else if (word.includes("-")) {
 
