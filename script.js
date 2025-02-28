@@ -11,7 +11,7 @@ let userTextInput;
 // Temporary store words, which checkSpelling are flages as misspelled. Used only for checkSpelling function
 let userMisspelledWords;
 
-window.onload = function () {
+function setupSpellChecker() {
     userTextInput = document.getElementById("userText");
     const checkBtn = document.getElementById("checkBtn");
     const mainBlock = document.getElementById("main-block");
@@ -117,3 +117,4 @@ function displayCheckResultBlock(words) {
         addMisspelledWordBlock.appendChild(addBtn);
     });
 }
+
