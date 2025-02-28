@@ -118,3 +118,7 @@ function displayCheckResultBlock(words) {
     });
 }
 
+window.onload = function () {
+    setupSpellChecker();
+};
+
